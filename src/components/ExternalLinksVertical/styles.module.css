@@ -1,0 +1,71 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-height: 100%;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.title {
+  margin-bottom: 10px;
+  font-size: 1.5em;
+  text-align: left;
+}
+
+.linkList {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.linkItem {
+  display: flex;           /* Em vez de inline-flex, para que cada item ocupe uma linha completa */
+  align-items: center;
+  padding: 8px;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  cursor: pointer;
+  width: 100%;             /* Força que cada item ocupe 100% da largura do contêiner */
+}
+
+.linkItem:hover {
+  background-color: #e0e0e0;
+  transform: scale(1.02);
+}
+
+.iconContainer {
+  margin-right: 10px;
+}
+
+.icon {
+  font-size: 2em;
+  color: inherit;
+}
+
+.linkTitle {
+  font-size: 1em;
+  white-space: nowrap;
+}
+
+/* Opcional: esconder a scrollbar visualmente, mantendo a funcionalidade */
+.linkList::-webkit-scrollbar {
+  display: none;
+}
+.linkList {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+  .linkItem {
+    padding: 5px;
+    font-size: 0.9rem;
+  }
+  .icon {
+    font-size: 1.5em;
+  }
+}

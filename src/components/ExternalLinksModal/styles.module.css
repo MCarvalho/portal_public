@@ -1,0 +1,177 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal {
+  background: #fff;
+  width: 95%;
+  max-width: 1200px;
+  max-height: 90vh;
+  min-width: 450px;
+  min-height: 700px;
+  border-radius: 4px;
+  /* Altere de overflow: hidden para visible para permitir que elementos posicionados fora do modal fiquem visíveis */
+  overflow: visible;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  /* Usando transform para deslocar o botão para fora do modal */
+  transform: translate(35%, -70%);
+  background: transparent;
+  border: none;
+  font-size: 2.5rem;
+  color: red;
+  cursor: pointer;
+  z-index: 2100;
+}
+
+/* O restante permanece inalterado */
+.modalContent {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.submenu {
+  width: 220px;
+  background-color: #f7f7f7;
+  padding: 10px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+  color: #000;
+  font-size: 1rem;
+  /* Permite o scroll vertical */
+  overflow-y: auto;
+  
+  /* Esconde a scrollbar no Firefox */
+  scrollbar-width: none;
+}
+
+/* Esconde a scrollbar em navegadores baseados em WebKit (Chrome, Safari, Opera) */
+.submenu::-webkit-scrollbar {
+  display: none;
+}
+
+.submenuItem {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 5px;
+  background: none;
+  border: 1px solid transparent;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  color: inherit;
+}
+
+.submenuItem:hover {
+  background-color: #e0e0e0;
+}
+
+.active {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
+
+.iconContainer {
+  display: inline-flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.submenuIcon {
+  font-size: 1.5em;
+}
+
+.submenuText {
+  vertical-align: middle;
+}
+
+/* Área principal: container do iframe */
+.iframeContainer {
+  flex: 1;
+  overflow: auto;
+  position: relative;
+}
+
+.iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  object-fit: cover;
+}
+
+/* Ajustes para telas mobile */
+@media (max-width: 768px) {
+  .modal {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    border-radius: 0; /* remove arredondamento para ocupar toda a tela */
+  }
+  .modalContent {
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+  }
+  /* Submenu: ocupar a parte superior com altura fixa e rolagem horizontal, se necessário */
+  .submenu {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    height: auto;
+    max-height: 200px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+  }
+  .submenuItem {
+    flex: 0 0 calc(33.33% - 10px); /* Cada item ocupará aproximadamente 33.33% menos margem */
+    margin-right: 10px;
+    padding: 5px 10px;
+    font-size: 0.9rem;
+    box-sizing: border-box;
+  }
+  .submenuIcon {
+    font-size: 1.2em;
+  }
+  /* Área principal do modal */
+  .iframeContainer {
+    flex: 1;
+    height: calc(100% - 50px); /* Considerando que o submenu tem 50px de altura */
+    overflow: hidden;
+  }
+  .iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  /* Ajuste do botão de fechar, se necessário */
+  .closeButton {
+    font-size: 2rem;
+    top: 0;
+    right: 0;
+    transform: translate(10%, -28%);
+  }
+}

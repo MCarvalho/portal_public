@@ -1,0 +1,10 @@
+/* Arrow.module.css */
+
+/* Essa classe será aplicada ao contêiner da seta, garantindo o layout correto */
+.arrowContainer {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: 2;
+}

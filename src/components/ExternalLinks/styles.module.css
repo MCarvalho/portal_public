@@ -1,0 +1,67 @@
+.container {
+  width: 100%;
+  padding: 20px;
+  margin: 20px auto;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.title {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: inherit;
+  text-align: left;
+}
+
+.item {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.item:hover {
+  border-color: transparent; /* Garante que a borda não apareça */
+}
+
+/* Aumenta levemente o ícone ao passar o mouse */
+.item:hover .icon {
+  transform: scale(1.1);
+  transition: transform 0.3s ease;
+}
+
+/* Aumenta levemente o texto ao passar o mouse */
+.item:hover .linkTitle {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
+
+.iconContainer {
+  margin-bottom: 10px;
+}
+
+.icon {
+  font-size: 3em;
+  color: inherit;
+}
+
+.linkTitle {
+  font-size: 1em;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    margin: 10px auto;
+  }
+  .item {
+    padding: 8px;
+    font-size: 0.9rem;
+  }
+  .icon {
+    font-size: 2.5em;
+  }
+}

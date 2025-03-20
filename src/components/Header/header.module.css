@@ -1,0 +1,156 @@
+.siteHeader {
+  position: fixed;            
+  top: 0;                     
+  left: 0;                    
+  width: 100%;                
+  z-index: 1000;              
+  padding: 10px 20px;         
+  background-color: #f0f0f0;  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;     
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.headerLeft a {
+  display: flex;
+  align-items: center;
+
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;
+  font-weight: 500;
+}
+
+.headerLeft a,
+.headerRight button {
+  margin-right: 15px;
+  text-decoration: none;
+  color: inherit;            
+  font-weight: 500;
+}
+
+.headerLeft a {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap; 
+}
+
+.headerRight button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 6px 10px;        
+  margin-right: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.headerRight button:hover {
+  border-color: currentColor;
+}
+
+.contrastButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  padding: 6px 10px;        
+  margin-right: 10px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.contrastButton svg,
+.fontIcon {
+  margin-right: 5px;
+}
+
+.fontIcon {
+  font-size: 1.5em;
+}
+
+.contrastButton:hover {
+  border-color: currentColor;
+}
+
+.icon {
+  display: inline-block;
+  background-color: #ccc;     
+  color: #000;                
+  border-radius: 50%;
+  width: 1.2em;               
+  height: 1.2em;
+  text-align: center;
+  line-height: 1.2em;
+  font-size: 1em;             
+  margin-right: 0.5em;        
+}
+
+.headerLabel {
+  margin-right: 1em;
+  font-weight: bold;
+}
+
+
+@media (max-width: 768px) {
+  .siteHeader {
+    padding: 8px 10px;
+  }
+  .headerLeft a {
+    margin-right: 8px;
+    font-size: 0.9rem;
+  }
+
+  .headerRight {
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .headerRight button,
+  .contrastButton {
+    padding: 4px 8px;
+    font-size: 0.9rem;
+  }
+
+  .fontText,
+  .contrastText {
+    display: none;
+  }
+
+  .contrastButton svg,
+  .fontIcon {
+    margin-right: 0px;
+  }
+}
+
+@media (max-width: 480px) {
+  .headerRight {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+  .headerRight button,
+  .contrastButton {
+    margin-bottom: 5px;
+    margin-right: 0;
+  }
+}

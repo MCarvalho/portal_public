@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  align-items: center; /* Alinha os conteúdos pelo topo */
+  gap: 20px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.postWrapper {
+  flex: 3;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+/* Em telas menores, empilha verticalmente */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
