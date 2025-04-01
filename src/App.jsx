@@ -1,11 +1,11 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
-import Home from './pages/Home';
-import Posts from './pages/Posts';
-import PostPage from './pages/Post';
-import OmbudsOfficePage from './pages/OmbudsOffice';
-import OmbudsOfficeMessagesPage from './pages/OmbudsOfficeMessages';
+import Home from './pages/Home/Home';
+import Posts from './pages/Posts/Posts';
+import PostPage from './pages/Post/Post';
+import OmbudsOfficePage from './pages/OmbudsOffice/OmbudsOffice';
+import OmbudsOfficeMessagesPage from './pages/OmbudsOfficeMessages/OmbudsOfficeMessages';
 
 function App() {
   return (

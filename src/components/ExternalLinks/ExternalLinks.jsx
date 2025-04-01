@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import Slider from 'react-slick';
 import Modal from 'react-modal';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { ThemeContext } from '@/contexts/ThemeContext';
 import {
   FaExternalLinkAlt,
   FaRocket,
@@ -10,11 +10,11 @@ import {
 } from 'react-icons/fa';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import styles from './styles.module.css';
+import styles from './externalLinks.module.css';
 import NextArrow from '../Arrows/NextArrow';
 import PrevArrow from '../Arrows/PrevArrow';
 import ExternalLinksModal from '../ExternalLinksModal';
-import externalLinks from '../../config/externalLinks';
+import externalLinks from '@/config/externalLinks';
 
 Modal.setAppElement('#root');
 

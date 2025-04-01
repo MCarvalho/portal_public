@@ -1,8 +1,9 @@
 import React, { useContext, useRef, useState, useEffect } from 'react';
 import Header from './Header';
-import Menu from './Menu';
+import Menu from './Menu/Menu';
 import Footer from './Footer';
 import { ThemeContext } from '../contexts/ThemeContext';
+import { SearchProvider } from '../contexts/SearchContext';
 
 const Layout = ({ children }) => {
   const { fontSize, contrast } = useContext(ThemeContext);
@@ -41,12 +42,14 @@ const Layout = ({ children }) => {
   };
 
   return (
-    <div style={containerStyle}>
-      <Header ref={headerRef} onBusca={focusSearchInput} />
-      <Menu searchInputRef={searchInputRef} />
-      {children}
-      <Footer />
-    </div>
+    <SearchProvider>
+      <div style={containerStyle}>
+        <Header ref={headerRef} onBusca={focusSearchInput} />
+        <Menu searchInputRef={searchInputRef} />
+        {children}
+        <Footer />
+      </div>
+    </SearchProvider>
   );
 };
 

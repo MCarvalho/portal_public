@@ -5,9 +5,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import NextArrow from '../Arrows/NextArrow';
 import PrevArrow from '../Arrows/PrevArrow';
-import styles from './styles.module.css';
+import styles from './carousel.module.css';
 
-const Carousel = () => {
+const Carousel = ({ posts = [] }) => {
   const { contrast, fontSize } = useContext(ThemeContext);
   const vColor = contrast === 'normal' ? '#000' : '#fff';
 
@@ -32,28 +32,13 @@ const Carousel = () => {
     centerPadding: '0px',
   };
 
-  const newsItems = [
-    {
-      id: 1,
-      title: 'Reforma da Prefeitura',
-      content:
-        'No dia 01/02/2025 foi finalizado a reforma da prefeitura de Cabedelo.',
-      image: '/noticia1.jpg',
-    },
-    {
-      id: 2,
-      title: 'Prefeito assina ajustes de Servidores',
-      content: 'Foi assinado o reajuste dos servidores.',
-      image: '/noticia2.jpg',
-    },
-    {
-      id: 3,
-      title: 'Porto de Cabedelo em Obras',
-      content:
-        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-      image: '/noticia3.jpg',
-    },
-  ];
+  const newsItems = posts.map((post) => ({
+    id: post.id,
+    title: post.title,
+    content: post.summary,
+    image: new URL(post.PostImages?.[0]?.path, import.meta.env.VITE_BACKEND_URL)
+      .href,
+  }));
 
   return (
     <div className={styles.carouselContainer} style={containerStyle}>

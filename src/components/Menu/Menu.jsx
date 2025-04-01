@@ -1,12 +1,15 @@
 import React, { useContext } from 'react';
-import { ThemeContext } from '../../contexts/ThemeContext';
+import { useNavigate } from 'react-router-dom';
+import { ThemeContext } from '@/contexts/ThemeContext';
+import { SearchContext } from '@/contexts/SearchContext';
 import { Link } from 'react-router-dom';
-import styles from './styles.module.css';
-import colors from '../../config/colors';
+import styles from './menu.module.css';
+import colors from '@/config/colors';
 
 const Menu = ({ searchInputRef }) => {
   const { contrast, fontSize } = useContext(ThemeContext);
-
+  const { searchTerm, setSearchTerm } = useContext(SearchContext);
+  const navigate = useNavigate();
   const menuStyle = {
     backgroundColor: contrast === 'normal' ? '#fff' : '#222',
     color: contrast === 'normal' ? '#000' : '#fff',
@@ -35,11 +38,14 @@ const Menu = ({ searchInputRef }) => {
             aria-label="Campo de busca"
             ref={searchInputRef}
             className={styles.input}
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button
-            type="submit"
+            type="button"
             aria-label="Buscar"
             className={styles.searchButton}
+            onClick={() => navigate('/posts')}
           >
             <svg
               width="16"
